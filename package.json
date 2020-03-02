@@ -1,0 +1,22 @@
+{
+  "name": "jscalculator",
+  "version": "1.0.0",
+  "description": "Javascript Calculator with TDD",
+  "main": "caculator.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navin22/jscalculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/navin22/jscalculator/issues"
+  },
+  "homepage": "https://github.com/navin22/jscalculator#readme",
+  "devDependencies": {
+    "mocha": "^7.1.0"
+  }
+}
