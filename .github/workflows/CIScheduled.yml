@@ -4,7 +4,8 @@
 name: Node.js CI
 
 on:
-  repository_dispatch: export_scenario
+  repository_dispatch:
+    types: [export_scenario]
   
 jobs:
   build:
