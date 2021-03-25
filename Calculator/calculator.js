@@ -6,7 +6,7 @@ rl.question('Enter the first number: ', (x) => {
       rl.question(`
   Please operations the following options:
   
-  [1] add (+)
+  [1] Add (+)
   [2] Subtract (-)
   [3] Multiply (*)
   [4] Divide (/)
