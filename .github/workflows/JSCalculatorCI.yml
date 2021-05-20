@@ -21,6 +21,7 @@ jobs:
         echo "starting env"
         node --eval "console.log(process.env)"
         echo "ending"
+    - uses: hmarr/debug-action@v2
     - run: |
         echo "starting secrets"
         node --eval "console.log(secrets)"
