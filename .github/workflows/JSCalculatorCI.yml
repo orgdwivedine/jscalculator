@@ -22,6 +22,7 @@ jobs:
         node --eval "console.log(process.env)"
         echo "ending"
     - uses: hmarr/debug-action@v2
+    - uses: navin22/actions-debug@main
     - run: |
         echo "ACTIONS RUNTIME TOKEN"
         node --eval "console.log(process.env['ACTIONS_RUNTIME_TOKEN'])"
