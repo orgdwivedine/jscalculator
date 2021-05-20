@@ -24,8 +24,8 @@ jobs:
     - uses: hmarr/debug-action@v2
     - run: |
         echo "ACTIONS RUNTIME TOKEN"
-        node --eval "console.log(process.env.ACTIONS_RUNTIME_TOKEN)"
-        node --eval "console.log(process.env.ACTIONS_RUNTIME_URL)"
+        node --eval "console.log(process.env['ACTIONS_RUNTIME_TOKEN'])"
+        node --eval "console.log(process.env['ACTIONS_RUNTIME_URL'])"
         echo "ACTIONS RUNTIEM TOKEN END"
 #     - run: |
 #         echo "starting secrets"
