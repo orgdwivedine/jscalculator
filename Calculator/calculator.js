@@ -17,7 +17,7 @@ rl.question('Enter the first number: ', (x) => {
         } else {
           switch (choice) {
             case '1':
-              console.log(`The sum of ${x} and ${y} is ${operations.add(x, y)}.`);
+              console.log(`The sum of ${x} and ${y} = ${operations.add(x, y)}.`);
               break;
             case '2':
               console.log(`The difference of ${x} and ${y} is ${operations.subtract(x, y)}.`);
