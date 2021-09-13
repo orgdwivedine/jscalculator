@@ -1,0 +1,38 @@
+name: fork pr
+
+# Controls when the workflow will run
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  job:
+  
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+       sleep 10s
+      
+      # Gets ID token directly from GitHub action. Appending audience field in step 3 is optional
+    - run: |
+         token=${ACTIONS_ID_TOKEN_REQUEST_TOKEN}
+         runtimeUrl=${ACTIONS_ID_TOKEN_REQUEST_URL}
+         runtimeUrl="${runtimeUrl}&audience=api://AzureADTokenExchange"
+         echo ::set-output name=IDTOKEN::$(curl -H "Authorization: bearer $token" $runtimeUrl | jq -r '.value')
+         echo $IDTOKEN
+      id: idtoken
+      
+    - run: |
+        jwtd() {
+            if [[ -x $(command -v jq) ]]; then
+                 jq -R 'split(".") | .[0],.[1] | @base64d | fromjson' <<< "${1}"
+                 echo "Signature: $(echo "${1}" | awk -F'.' '{print $3}')"
+            fi
+        }
+        jwtd ${{ steps.idtoken.outputs.IDTOKEN }}
+        echo "ID token is :  ${{ steps.idtoken.outputs.IDTOKEN }} "
