@@ -4,8 +4,10 @@
 name: Node.js CI
 
 on:
-  repository_dispatch:
-    types: [export_scenario]
+  # Allows you to run this workflow manually from the Actions tab
+  pull_request:
+    branches:
+      - main
   
 jobs:
   build:
